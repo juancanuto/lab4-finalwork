@@ -3,11 +3,13 @@
   
   André Maurilio
   
-  Juan Canuto Hassam
+  João Antonio Carvalho Oliveira
   
   João Paulo Machado Rufino
   
-  João Antonio Carvalho Oliveira
+  Juan Canuto Hassam
   
-# Nome do grupo
+  
+ 
+## Nome do grupo
   Grupo 03
