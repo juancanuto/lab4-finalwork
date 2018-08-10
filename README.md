@@ -1,2 +1,9 @@
 # lab4-finawork
-trabalho do lab4
+  Adriano Mota e Souza
+  André Maurilio
+  Juan Canuto Hassam
+  João Paulo Machado Rufino
+  João Antonio Carvalho Oliveira
+  
+# Nome do grupo
+  Grupo 03
