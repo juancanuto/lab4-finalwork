@@ -1,0 +1,211 @@
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`pessoa` (
+  `id` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL COMMENT 'Nome completo atribuído à pessoa.',
+  `cpf` INT(12) NOT NULL COMMENT 'Número de Cadastro de Pessoa Física (CPF) atribuído à pessoa.',
+  `rg` INT(9) NOT NULL COMMENT 'Número de Registro Geral (RG) atribuído à pessoa.',
+  `data_nascimento` DATETIME NULL COMMENT 'Data de Nascimento da pessoa.',
+  `sexo` VARCHAR(2) NULL COMMENT 'Sexo atribuído à pessoa, será definido um código de atribuição que poderá ser (Masculino,Feminino,Não Informado).',
+  PRIMARY KEY (`id`));
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`cliente` (
+  `id` INT NOT NULL,
+  `endereco_id` INT NOT NULL,
+  `id_pessoa` INT NOT NULL,
+  PRIMARY KEY (`id`, `id_pessoa`),
+  INDEX `fk_cliente_endereco1_idx` (`endereco_id` ASC) VISIBLE,
+  INDEX `fk_cliente_pessoa_idx` (`id_pessoa` ASC) VISIBLE,
+  CONSTRAINT `fk_cliente_endereco1`
+    FOREIGN KEY (`endereco_id`)
+    REFERENCES `Loja_lab4_projeto_final`.`endereco` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cliente_pessoa`
+    FOREIGN KEY (`id_pessoa`)
+    REFERENCES `Loja_lab4_projeto_final`.`pessoa` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`usuario` (
+  `id` INT NOT NULL,
+  `nome` VARCHAR(45) NULL,
+  `senha` VARCHAR(20) NULL,
+  PRIMARY KEY (`id`));
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`funcionario` (
+  `idfuncionario` INT NOT NULL,
+  `usuario_id` INT NOT NULL,
+  `pessoa_id` INT NOT NULL,
+  PRIMARY KEY (`idfuncionario`),
+  INDEX `fk_funcionario_usuario1_idx` (`usuario_id` ASC) VISIBLE,
+  INDEX `fk_funcionario_pessoa1_idx` (`pessoa_id` ASC) VISIBLE,
+  CONSTRAINT `fk_funcionario_usuario1`
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `Loja_lab4_projeto_final`.`usuario` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_funcionario_pessoa1`
+    FOREIGN KEY (`pessoa_id`)
+    REFERENCES `Loja_lab4_projeto_final`.`pessoa` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`endereco` (
+  `id` INT NOT NULL,
+  `rua` VARCHAR(45) NULL,
+  `numero` INT(10) NULL,
+  `bairro` VARCHAR(45) NULL,
+  `cidade` VARCHAR(45) NULL,
+  `estado` INT(10) NULL,
+  `cep` INT(8) NOT NULL,
+  PRIMARY KEY (`id`));
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`telefone` (
+  `id` INT NOT NULL,
+  `numero` INT NULL,
+  `ddd` INT NULL,
+  `tipo` INT(2) NULL,
+  PRIMARY KEY (`id`));
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`fornecedor` (
+  `id` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `cnpj` INT(14) NOT NULL,
+  `id_endereco` INT(20) NULL,
+  `fornecedorcol` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_fornecedor_endereco_idx` (`id_endereco` ASC) VISIBLE,
+  CONSTRAINT `fk_fornecedor_endereco`
+    FOREIGN KEY (`id_endereco`)
+    REFERENCES `Loja_lab4_projeto_final`.`endereco` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`telefone_cliente` (
+  `telefone_id` INT NOT NULL,
+  `cliente_id` INT NOT NULL,
+  PRIMARY KEY (`telefone_id`, `cliente_id`),
+  INDEX `fk_telefone_has_cliente_cliente1_idx` (`cliente_id` ASC) VISIBLE,
+  INDEX `fk_telefone_has_cliente_telefone1_idx` (`telefone_id` ASC) VISIBLE,
+  CONSTRAINT `fk_telefone_has_cliente_telefone1`
+    FOREIGN KEY (`telefone_id`)
+    REFERENCES `Loja_lab4_projeto_final`.`telefone` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_telefone_has_cliente_cliente1`
+    FOREIGN KEY (`cliente_id`)
+    REFERENCES `Loja_lab4_projeto_final`.`cliente` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`telefone_fornecedor` (
+  `telefone_id` INT NOT NULL,
+  `fornecedor_id` INT NOT NULL,
+  PRIMARY KEY (`telefone_id`, `fornecedor_id`),
+  INDEX `fk_telefone_has_fornecedor_fornecedor1_idx` (`fornecedor_id` ASC) VISIBLE,
+  INDEX `fk_telefone_has_fornecedor_telefone1_idx` (`telefone_id` ASC) VISIBLE,
+  CONSTRAINT `fk_telefone_has_fornecedor_telefone1`
+    FOREIGN KEY (`telefone_id`)
+    REFERENCES `Loja_lab4_projeto_final`.`telefone` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_telefone_has_fornecedor_fornecedor1`
+    FOREIGN KEY (`fornecedor_id`)
+    REFERENCES `Loja_lab4_projeto_final`.`fornecedor` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`fornecedor_produto` (
+  `id_fornecedor` INT NOT NULL,
+  `id_produto` INT NOT NULL,
+  PRIMARY KEY (`id_fornecedor`, `id_produto`),
+  INDEX `fk_fornecedores_has_produto_produto1_idx` (`id_produto` ASC) VISIBLE,
+  INDEX `fk_fornecedores_has_produto_fornecedores1_idx` (`id_fornecedor` ASC) VISIBLE,
+  CONSTRAINT `fk_fornecedores_has_produto_fornecedores1`
+    FOREIGN KEY (`id_fornecedor`)
+    REFERENCES `Loja_lab4_projeto_final`.`fornecedor` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_fornecedores_has_produto_produto1`
+    FOREIGN KEY (`id_produto`)
+    REFERENCES `Loja_lab4_projeto_final`.`produto` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`categoria` (
+  `id` INT NOT NULL,
+  `nome` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`produto` (
+  `id` INT NOT NULL,
+  `id_categoria` INT NOT NULL,
+  `nome` VARCHAR(45) NULL,
+  `marca` VARCHAR(45) NULL,
+  `modelo` VARCHAR(45) NULL,
+  `cor` VARCHAR(45) NULL,
+  `tamanho` VARCHAR(45) NULL,
+  `valor` DOUBLE NULL,
+  `observacao` VARCHAR(45) NULL,
+  `data_fabricacao` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_produto_categoria1_idx` (`id_categoria` ASC) VISIBLE,
+  CONSTRAINT `fk_produto_categoria1`
+    FOREIGN KEY (`id_categoria`)
+    REFERENCES `Loja_lab4_projeto_final`.`categoria` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`estoque` (
+  `id` INT NOT NULL,
+  `id_produto` INT NOT NULL,
+  `qtd_produto` INT(50) NULL,
+  `qtd_minima` INT(50) NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_estoque_produto_idx` (`id_produto` ASC) VISIBLE,
+  CONSTRAINT `fk_estoque_produto`
+    FOREIGN KEY (`id_produto`)
+    REFERENCES `Loja_lab4_projeto_final`.`produto` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+ENGINE = InnoDB;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Loja_lab4_projeto_final`.`venda` (
+  `id` INT(20) NOT NULL,
+  `id_cliente` INT(20) NOT NULL,
+  `id_produto` INT(20) NOT NULL,
+  `id_funcionario` INT NOT NULL,
+  `forma_pgto` INT(20) NOT NULL COMMENT 'Tabela utilizada para registro dos dados de venda de produtos à clientes.',
+  `valor_pago` DOUBLE NOT NULL,
+  `num_parcelas` INT(10) NOT NULL,
+  PRIMARY KEY (`id`, `id_cliente`, `id_funcionario`),
+  INDEX `fk_venda_produto1_idx` (`id_produto` ASC) VISIBLE,
+  INDEX `fk_venda_cliente_idx` (`id_cliente` ASC) VISIBLE,
+  INDEX `fk_venda_funcionario1_idx` (`id_funcionario` ASC) VISIBLE,
+  CONSTRAINT `fk_venda_produto1`
+    FOREIGN KEY (`id_produto`)
+    REFERENCES `Loja_lab4_projeto_final`.`produto` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_venda_cliente`
+    FOREIGN KEY (`id_cliente`)
+    REFERENCES `Loja_lab4_projeto_final`.`cliente` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_venda_funcionario1`
+    FOREIGN KEY (`id_funcionario`)
+    REFERENCES `Loja_lab4_projeto_final`.`funcionario` (`idfuncionario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+ENGINE = InnoDB;
