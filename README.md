@@ -3,10 +3,6 @@
   
   André Maurilio
   
-  João Antonio Carvalho Oliveira
-  
-  João Paulo Machado Rufino
-  
   Juan Canuto Hassam
   
  
