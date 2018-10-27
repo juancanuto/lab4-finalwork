@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -25,6 +26,8 @@ public class Venda {
 	@GenericGenerator(name="native", strategy = "native")
 	private Integer id;
 	
+	@ManyToOne
+	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
 	
 	@OneToMany

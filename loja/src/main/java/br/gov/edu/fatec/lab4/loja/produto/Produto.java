@@ -1,8 +1,10 @@
 package br.gov.edu.fatec.lab4.loja.produto;
 
+import java.time.ZonedDateTime;
 import java.time.temporal.Temporal;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,6 +30,7 @@ public class Produto {
 	private Integer id;
 	
 	@OneToOne
+	@JoinColumn(name="id_categoria")
 	private Categoria categoria;
 	
 	@ManyToMany
@@ -46,5 +49,6 @@ public class Produto {
 	private String tamanho;
 	private Double valor;
 	private String observacao;
-	private Temporal dataFabricacao;
+	@Column(name="data_fabricacao")
+	private ZonedDateTime dataFabricacao;
 }

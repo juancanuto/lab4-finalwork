@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -25,6 +26,8 @@ public class Fornecedor {
 	private Integer id;
 	private String nome;
 	private Integer cnpj;
+	
+	@OneToOne
 	private Endereco endereco;
 	@ManyToMany(mappedBy="fornecedores")
 	private List<Produto> produtos;
