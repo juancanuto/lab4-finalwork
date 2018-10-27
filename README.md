@@ -15,7 +15,11 @@
     2 - Escolha um console de sua escolha, recomendamos o "gitbash".
     3 - No console, navegue até a pasta anteriormente definida para armazenamento do projeto.
     4 - Execute o comando: git clone https://github.com/juancanuto/lab4-finalwork.git;
-    5 - Após ter baixado o projeto, importe-o para uma IDE de sua escolha, recomendamos o eclipse.
+    5 - Após ter baixado o projeto, importe-o para uma IDE de sua escolha, recomendamos o eclipse ou o STS(Um eclipse customizado pelo hibernate).
+  ### Execução de comandos MAVEN no console
+    1 - No console navegar até a pasta do projeto e executar os seguintes comandos
+        -mvn clean install
+        -mvn liquibase:update
  
   ### Configuração do banco de dados:
     Para este projeto foi escolhido o banco de dados MySQL utilizando-se o cliente MySQL Workbench para acesso ao mesmo.
