@@ -21,6 +21,6 @@ public class Endereco {
 	private Integer numero;
 	private String bairro;
 	private String cidade;
-	private String estado;
+	private Estado estado;
 	private Integer cep;
 }

@@ -24,10 +24,13 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	@GenericGenerator(name="native", strategy = "native")
 	private int id;
+	
 	@OneToOne
 	private Pessoa pessoa;
+	
 	@OneToOne
 	private Endereco endereco;
+	
 	@ManyToMany()
 	@JoinTable(name="telefone_cliente",
     joinColumns={@JoinColumn(name="telefone_id", referencedColumnName="id")},

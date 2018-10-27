@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
@@ -16,8 +15,8 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 import br.gov.edu.fatec.lab4.loja.categoria.Categoria;
+import br.gov.edu.fatec.lab4.loja.estoque.Estoque;
 import br.gov.edu.fatec.lab4.loja.fornecedor.Fornecedor;
-import br.gov.edu.fatec.lab4.loja.telefone.Telefone;
 import lombok.Data;
 
 @Entity
@@ -27,13 +26,19 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	@GenericGenerator(name="native", strategy = "native")
 	private Integer id;
+	
 	@OneToOne
 	private Categoria categoria;
+	
 	@ManyToMany
 	@JoinTable(name="fornecedor_produto",
     joinColumns={@JoinColumn(name="fornecedor_id", referencedColumnName="id")},
     inverseJoinColumns={@JoinColumn(name="produto_id", referencedColumnName="id")})
 	private List<Fornecedor> fornecedores;
+	
+	@OneToOne(mappedBy="produto")
+	private Estoque estoque;
+	
 	private String nome;
 	private String marca;
 	private String modelo;
