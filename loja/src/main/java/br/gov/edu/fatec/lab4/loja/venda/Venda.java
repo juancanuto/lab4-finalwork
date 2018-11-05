@@ -8,8 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -30,7 +31,7 @@ public class Venda {
 	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
 	
-	@OneToMany
+	@ManyToMany(mappedBy="vendas")
 	private List<Produto> produtos;
 	
 	@OneToOne(orphanRemoval=true)

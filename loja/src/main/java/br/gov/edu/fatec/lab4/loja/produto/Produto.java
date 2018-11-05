@@ -19,6 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 import br.gov.edu.fatec.lab4.loja.categoria.Categoria;
 import br.gov.edu.fatec.lab4.loja.estoque.Estoque;
 import br.gov.edu.fatec.lab4.loja.fornecedor.Fornecedor;
+import br.gov.edu.fatec.lab4.loja.venda.Venda;
 import lombok.Data;
 
 @Entity
@@ -38,6 +39,12 @@ public class Produto {
     joinColumns={@JoinColumn(name="fornecedor_id", referencedColumnName="id")},
     inverseJoinColumns={@JoinColumn(name="produto_id", referencedColumnName="id")})
 	private List<Fornecedor> fornecedores;
+	
+	@ManyToMany
+	@JoinTable(name="produto_venda",
+    joinColumns={@JoinColumn(name="produto_id", referencedColumnName="id")},
+    inverseJoinColumns={@JoinColumn(name="venda_id", referencedColumnName="id")})
+	private List<Venda>vendas;
 	
 	@OneToOne(mappedBy="produto")
 	private Estoque estoque;

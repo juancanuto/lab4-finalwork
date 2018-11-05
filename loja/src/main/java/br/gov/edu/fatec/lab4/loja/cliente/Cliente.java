@@ -3,15 +3,11 @@ package br.gov.edu.fatec.lab4.loja.cliente;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
-
-import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 import br.gov.edu.fatec.lab4.loja.Pessoa;
 import br.gov.edu.fatec.lab4.loja.endereco.Endereco;
@@ -20,15 +16,8 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Cliente {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-	@GenericGenerator(name="native", strategy = "native")
-	private Integer id;
-	
-	@OneToOne
-	private Pessoa pessoa;
-	
+@PrimaryKeyJoinColumn(name="id")
+public class Cliente extends Pessoa{
 	@OneToOne
 	private Endereco endereco;
 	
