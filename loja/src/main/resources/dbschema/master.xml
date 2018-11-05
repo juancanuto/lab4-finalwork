@@ -10,19 +10,19 @@
 		<dbms type="mysql" />
 	</preConditions>
 	
-	<include file="/dbschema/scripts/pessoa.sql"/>
-	<include file="/dbschema/scripts/endereco.sql"/>
-	<include file="/dbschema/scripts/cliente.sql"/>
-	<include file="/dbschema/scripts/usuario.sql"/>
-	<include file="/dbschema/scripts/funcionario.sql" />
-	<include file="/dbschema/scripts/telefone.sql"/>
-	<include file="/dbschema/scripts/fornecedor.sql"/>
-	<include file="/dbschema/scripts/telefone_cliente.sql"/>
-	<include file="/dbschema/scripts/telefone_fornecedor.sql"/>
-	<include file="/dbschema/scripts/categoria.sql"/>
-	<include file="/dbschema/scripts/produto.sql"/>
-	<include file="/dbschema/scripts/fornecedor_produto.sql"/>
-	<include file="/dbschema/scripts/estoque.sql"/>
-	<include file="/dbschema/scripts/venda.sql"/>
+	<include file="src/main/resources/dbschema/scripts/pessoa.sql"/>
+	<include file="src/main/resources/dbschema/scripts/endereco.sql"/>
+	<include file="src/main/resources/dbschema/scripts/cliente.sql"/>
+	<include file="src/main/resources/dbschema/scripts/usuario.sql"/>
+	<include file="src/main/resources/dbschema/scripts/funcionario.sql" />
+	<include file="src/main/resources/dbschema/scripts/telefone.sql"/>
+	<include file="src/main/resources/dbschema/scripts/fornecedor.sql"/>
+	<include file="src/main/resources/dbschema/scripts/telefone_cliente.sql"/>
+	<include file="src/main/resources/dbschema/scripts/telefone_fornecedor.sql"/>
+	<include file="src/main/resources/dbschema/scripts/categoria.sql"/>
+	<include file="src/main/resources/dbschema/scripts/produto.sql"/>
+	<include file="src/main/resources/dbschema/scripts/fornecedor_produto.sql"/>
+	<include file="src/main/resources/dbschema/scripts/estoque.sql"/>
+	<include file="src/main/resources/dbschema/scripts/venda.sql"/>
 
 </databaseChangeLog>
