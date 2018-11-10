@@ -57,13 +57,11 @@
 		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
-			<version>3.6.2</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.11</version>
 		</dependency>
 
 		<dependency>
@@ -101,7 +99,7 @@
 				<configuration>
 					<propertyFileWillOverride>true</propertyFileWillOverride>
 					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
-					<changeLogFile>/src/main/resources/dbschema/master.xml</changeLogFile>
+					<!--  <changeLogFile>/dbschema/master.xml</changeLogFile>-->
 					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
 				</configuration>
 			</plugin>
