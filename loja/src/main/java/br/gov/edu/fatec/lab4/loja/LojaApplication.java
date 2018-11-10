@@ -1,13 +1,11 @@
 package br.gov.edu.fatec.lab4.loja;
 
-import java.util.TimeZone;
-
-import javax.annotation.PostConstruct;
-
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@EnableAutoConfiguration
 public class LojaApplication {
 	 
 	public static void main(String[] args) {

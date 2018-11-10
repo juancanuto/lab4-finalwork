@@ -1,6 +1,7 @@
 package br.gov.edu.fatec.lab4.loja.categoria;
 
-public interface CategoriaServiceImpl {
-	public Categoria findById(Integer id);
-	public boolean salvar(Categoria categoria);
+import br.gov.edu.fatec.lab4.loja.generic.crud.IGenericServiceCrud;
+
+public interface CategoriaServiceImpl extends IGenericServiceCrud<Categoria, Integer>{
+	
 }
