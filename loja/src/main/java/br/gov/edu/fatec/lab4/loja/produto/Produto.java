@@ -1,7 +1,6 @@
 package br.gov.edu.fatec.lab4.loja.produto;
 
 import java.time.ZonedDateTime;
-import java.time.temporal.Temporal;
 import java.util.List;
 
 import javax.persistence.Column;

@@ -18,9 +18,6 @@ import lombok.Data;
 @Entity
 @PrimaryKeyJoinColumn(name="id")
 public class Cliente extends Pessoa{
-	@OneToOne
-	private Endereco endereco;
-	
 	@ManyToMany
 	@JoinTable(name="telefone_cliente",
     joinColumns={@JoinColumn(name="telefone_id", referencedColumnName="id")},

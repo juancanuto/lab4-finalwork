@@ -12,10 +12,12 @@ import br.gov.edu.fatec.lab4.loja.Pessoa;
 import br.gov.edu.fatec.lab4.loja.usuario.Usuario;
 import br.gov.edu.fatec.lab4.loja.venda.Venda;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id")
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class Funcionario extends Pessoa{
 	@OneToOne
 	@JoinColumn(name="usuario_id")
