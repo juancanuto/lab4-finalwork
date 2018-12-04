@@ -5,8 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.jayway.jsonpath.Option;
-
 public class ClienteService implements ClienteServiceImpl {
 
 	@Autowired

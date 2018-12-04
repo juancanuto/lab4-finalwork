@@ -2,22 +2,21 @@ package br.gov.edu.fatec.lab4.loja.venda;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import br.gov.edu.fatec.lab4.loja.cliente.Cliente;
 import br.gov.edu.fatec.lab4.loja.funcionario.Funcionario;
-import br.gov.edu.fatec.lab4.loja.produto.Produto;
 import lombok.Data;
 @Entity
 @Data
@@ -31,8 +30,8 @@ public class Venda {
 	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
 	
-	@ManyToMany(mappedBy="vendas")
-	private List<Produto> produtos;
+	@OneToMany(mappedBy="venda", cascade=CascadeType.ALL, orphanRemoval=true)
+	private List<ItemVenda> itensVenda;
 	
 	@OneToOne(orphanRemoval=true)
 	@JoinColumn(name="id_funcionario")
@@ -46,5 +45,4 @@ public class Venda {
 	
 	@Column(name="num_parcelas")
 	private int parcelas;
-	
 }
