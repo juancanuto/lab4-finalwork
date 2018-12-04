@@ -1,8 +1,6 @@
 package br.gov.edu.fatec.lab4.loja;
 
 import java.time.ZonedDateTime;
-import java.time.temporal.Temporal;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,15 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import br.gov.edu.fatec.lab4.loja.endereco.Endereco;
-import br.gov.edu.fatec.lab4.loja.telefone.Telefone;
 import lombok.Data;
 @Data
 @Entity
@@ -38,6 +32,4 @@ public class Pessoa {
 	private String sexo;
 	@OneToOne
 	private Endereco endereco;
-	
-	
 }
