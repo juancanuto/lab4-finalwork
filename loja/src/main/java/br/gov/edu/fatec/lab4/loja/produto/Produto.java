@@ -21,6 +21,7 @@ import org.hibernate.annotations.GenericGenerator;
 import br.gov.edu.fatec.lab4.loja.categoria.Categoria;
 import br.gov.edu.fatec.lab4.loja.estoque.Estoque;
 import br.gov.edu.fatec.lab4.loja.fornecedor.Fornecedor;
+import br.gov.edu.fatec.lab4.loja.fornecedor.ItemCompra;
 import br.gov.edu.fatec.lab4.loja.venda.ItemVenda;
 import br.gov.edu.fatec.lab4.loja.venda.Venda;
 import lombok.Data;
@@ -37,11 +38,8 @@ public class Produto {
 	@JoinColumn(name="id_categoria")
 	private Categoria categoria;
 	
-	@ManyToMany
-	@JoinTable(name="fornecedor_produto",
-    joinColumns={@JoinColumn(name="fornecedor_id", referencedColumnName="id")},
-    inverseJoinColumns={@JoinColumn(name="produto_id", referencedColumnName="id")})
-	private List<Fornecedor> fornecedores;
+	@OneToMany(mappedBy="produto", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.LAZY)
+	private List<ItemCompra> itensCompra;
 	
 	@OneToMany(mappedBy="produto", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.LAZY)
 	private List<ItemVenda> itensVenda;

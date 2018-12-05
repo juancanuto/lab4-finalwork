@@ -2,6 +2,7 @@ package br.gov.edu.fatec.lab4.loja.fornecedor;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,12 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import br.gov.edu.fatec.lab4.loja.endereco.Endereco;
-import br.gov.edu.fatec.lab4.loja.produto.Produto;
 import br.gov.edu.fatec.lab4.loja.telefone.Telefone;
 import lombok.Data;
 @Entity
@@ -29,8 +30,10 @@ public class Fornecedor {
 	
 	@OneToOne
 	private Endereco endereco;
-	@ManyToMany(mappedBy="fornecedores")
-	private List<Produto> produtos;
+	
+	@OneToMany(mappedBy="fornecedor", cascade=CascadeType.ALL, orphanRemoval=true)
+	private List<ItemCompra> produtos;
+	
 	@ManyToMany
 	@JoinTable(name="telefone_fornecedor",
     joinColumns={@JoinColumn(name="telefone_id", referencedColumnName="id")},

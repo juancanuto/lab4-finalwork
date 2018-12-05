@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class FonecedorService implements FornecedorServiceImpl {
+public class FornecedorService implements FornecedorServiceImpl {
 
 	@Autowired
 	public FornecedorRepository fornecedorRepository;
