@@ -1,9 +1,11 @@
 package br.gov.edu.fatec.lab4.loja.fornecedor;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -16,19 +18,23 @@ import lombok.Setter;
 @Table(name="fornecedor_produto")
 @Getter
 @Setter
-public class ItemCompra {
+public class ItemCompra implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 68779708451841729L;
 
+	@Id
 	@ManyToOne
-	@JoinColumn(name = "id_produto")
+	@JoinColumn(name = "produto_id")
 	Produto produto;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_fornecedor")
+	@Id
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fornecedor_id")
 	Fornecedor fornecedor;
 	
-	@Column(name="data_entrada")
 	Calendar data_entrada;
 	
-	@Column(name="valor_custo")
 	Double valor_custo;
 }

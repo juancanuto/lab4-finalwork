@@ -99,7 +99,7 @@
 				<configuration>
 					<propertyFileWillOverride>true</propertyFileWillOverride>
 					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
-					<changeLogFile>/db/changelog/master.xml</changeLogFile>
+					<changeLogFile>/db/master.xml</changeLogFile>
 					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
 				</configuration>
 			</plugin>

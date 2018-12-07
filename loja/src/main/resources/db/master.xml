@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    
+	<preConditions>
+		<dbms type="mysql" />
+	</preConditions>
+	
+	<include file="db/scripts/endereco.sql"/>
+	<include file="db/scripts/pessoa.sql"/>
+	<include file="db/scripts/cliente.sql"/>
+	<include file="db/scripts/usuario.sql"/>
+	<include file="db/scripts/funcionario.sql" />
+	<include file="db/scripts/telefone.sql"/>
+	<include file="db/scripts/fornecedor.sql"/>
+	<include file="db/scripts/telefone_cliente.sql"/>
+	<include file="db/scripts/telefone_fornecedor.sql"/>
+	<include file="db/scripts/categoria.sql"/>
+	<include file="db/scripts/produto.sql"/>
+	<include file="db/scripts/fornecedor_produto.sql"/>
+	<include file="db/scripts/estoque.sql"/>
+	<include file="db/scripts/venda.sql"/>
+	<include file="db/scripts/item_venda.sql"/>
+</databaseChangeLog>
