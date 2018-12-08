@@ -5,34 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
 @Entity
-@AllArgsConstructor
+@Data
+@NoArgsConstructor
 public class Categoria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-//	@GenericGenerator(name="native", strategy = "native")
+	@GenericGenerator(name="native", strategy = "native")
 	private Integer id;
 	private String nome;
-	
-	public Categoria(String nome) {
-		setNome(nome);
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 }

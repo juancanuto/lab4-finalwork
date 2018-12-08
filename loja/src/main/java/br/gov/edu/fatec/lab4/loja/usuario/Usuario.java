@@ -8,9 +8,11 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")

@@ -11,8 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -20,14 +18,14 @@ import org.hibernate.annotations.GenericGenerator;
 
 import br.gov.edu.fatec.lab4.loja.categoria.Categoria;
 import br.gov.edu.fatec.lab4.loja.estoque.Estoque;
-import br.gov.edu.fatec.lab4.loja.fornecedor.Fornecedor;
 import br.gov.edu.fatec.lab4.loja.fornecedor.ItemCompra;
 import br.gov.edu.fatec.lab4.loja.venda.ItemVenda;
-import br.gov.edu.fatec.lab4.loja.venda.Venda;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")

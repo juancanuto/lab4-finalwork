@@ -9,9 +9,11 @@ import org.hibernate.annotations.GeneratorType;
 import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Endereco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")

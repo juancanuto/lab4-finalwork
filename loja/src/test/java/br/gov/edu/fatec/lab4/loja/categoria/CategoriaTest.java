@@ -25,54 +25,55 @@ public class CategoriaTest {
 
 	@Test
 	public void testSalvarCategoria() {	
-		Categoria categoria = new Categoria("Eletrônicos");
+		Categoria categoria = new Categoria();
+		categoria.setNome("Eletrônicos");
 		cr.saveAndFlush(categoria);
 		Categoria c = cr.findById(categoria.getId()).get();
 	}
 
-	@Test
-	public void testCategoria() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testBuilder() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetId() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetNome() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetId() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetNome() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testEqualsObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testCanEqual() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testCategoria() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testBuilder() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testGetId() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testGetNome() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testSetId() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testSetNome() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testEqualsObject() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testCanEqual() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testToString() {
+//		fail("Not yet implemented");
+//	}
 
 }
