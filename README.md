@@ -29,8 +29,11 @@
     Obs: As configurações de usuario e senha definadas nos arquivos "Application.properties" e "liquibase.properties" têm que ser as mesmas das definições de usuário e senha do mysql. 
     4 - Ir até a aba "Schema Privileges" do usuário "lab04db" anteriormente criado e clicar no botão "Add Entry", selecionar "Select ALL" para definir todas as permissões e em seguida confirmar as alterações clicando no botão "Apply".
 
-  ### Rodar o seguinte comando no mysql workbench
+  ### Rodar os seguintes comandos no mysql workbench
     ALTER USER 'lab04db' IDENTIFIED WITH mysql_native_password BY 'lab04db';
-
+    SET GLOBAL sql_mode=''
+    
     OBS: Este comando se faz necessário pois ao subir aplicação uma excessão é gerada impedindo o bom funcionamento do projeto.
-
+    ---------------------------------------------------------------------------------------------------------------------------
+    
+    
