@@ -13,10 +13,12 @@ import br.gov.edu.fatec.lab4.loja.usuario.Usuario;
 import br.gov.edu.fatec.lab4.loja.venda.Venda;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id")
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper=false)
 public class Funcionario extends Pessoa{
 	@OneToOne

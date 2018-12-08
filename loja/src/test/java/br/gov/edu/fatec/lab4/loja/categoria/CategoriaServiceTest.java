@@ -27,8 +27,10 @@ public class CategoriaServiceTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		 categoria = new Categoria("teste");
-		 categoriaUpdate = new Categoria("updateTeste");
+		 categoria = new Categoria();
+		 categoria.setNome("Teste");
+		 categoriaUpdate = new Categoria();
+		 categoria.setNome("updateTeste");
 	}
 
 	@Test

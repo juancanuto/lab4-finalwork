@@ -11,13 +11,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.gov.edu.fatec.lab4.loja.produto.Produto;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="item_venda")
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 public class ItemVenda implements Serializable{
 	/**
 	 * 

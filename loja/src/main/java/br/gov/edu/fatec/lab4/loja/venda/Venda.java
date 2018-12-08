@@ -18,8 +18,11 @@ import org.hibernate.annotations.GenericGenerator;
 import br.gov.edu.fatec.lab4.loja.cliente.Cliente;
 import br.gov.edu.fatec.lab4.loja.funcionario.Funcionario;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Data
+@NoArgsConstructor
 public class Venda {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")

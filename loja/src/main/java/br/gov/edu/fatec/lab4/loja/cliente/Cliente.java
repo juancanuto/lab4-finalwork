@@ -6,16 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 import br.gov.edu.fatec.lab4.loja.Pessoa;
-import br.gov.edu.fatec.lab4.loja.endereco.Endereco;
 import br.gov.edu.fatec.lab4.loja.telefone.Telefone;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-@Data
 @Entity
+@Data
+@EqualsAndHashCode(callSuper=false)
+@NoArgsConstructor
 @PrimaryKeyJoinColumn(name="id")
 public class Cliente extends Pessoa{
 	@ManyToMany

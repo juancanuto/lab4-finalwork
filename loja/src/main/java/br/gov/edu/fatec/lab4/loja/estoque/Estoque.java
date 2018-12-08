@@ -7,9 +7,11 @@ import javax.persistence.OneToOne;
 
 import br.gov.edu.fatec.lab4.loja.produto.Produto;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Estoque {
 	@Id
 	private int id;
