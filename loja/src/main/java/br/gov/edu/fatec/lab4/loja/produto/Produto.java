@@ -57,4 +57,18 @@ public class Produto {
 	private String observacao;
 	@Column(name="data_fabricacao")
 	private Date dataFabricacao;
+	@Override
+	public String toString() {
+		return "Produto: "+this.getNome()+"\n"
+		+" Marca "+this.getMarca()+"\n"
+		+"Modelo: "+this.getModelo()+"\n"
+		+"Cor: "+this.getCor()+"\n"
+		+"Observação: "+this.getObservacao()+"\n"
+		+"Tamanho: "+this.getTamanho()+"\n"
+		+"Valor: "+this.getValor()+"\n"
+		+"Categoria: "+this.getCategoria()+"\n"
+		+"DataFabricacao: "+this.getDataFabricacao();
+	}
+	
+	
 }

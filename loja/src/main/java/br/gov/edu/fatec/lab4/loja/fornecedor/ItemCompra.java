@@ -3,6 +3,7 @@ package br.gov.edu.fatec.lab4.loja.fornecedor;
 import java.io.Serializable;
 import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,7 +33,9 @@ public class ItemCompra implements Serializable{
 	@EmbeddedId
 	ItemCompraPK itemCompraPK;
 	
-	Calendar data_entrada;
+	@Column(name="data_entrada")
+	Calendar dataEntrada;
 	
-	Double valor_custo;
+	@Column(name="valor_custo")
+	Double valorCusto;
 }

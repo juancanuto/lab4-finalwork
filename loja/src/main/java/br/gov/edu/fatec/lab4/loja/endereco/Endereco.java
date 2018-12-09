@@ -25,4 +25,11 @@ public class Endereco {
 	private String cidade;
 	private Estado estado;
 	private Integer cep;
+	@Override
+	public String toString() {
+		return "Endereco [id=" + id + ", rua=" + rua + ", numero=" + numero + ", bairro=" + bairro + ", cidade="
+				+ cidade + ", estado=" + estado + ", cep=" + cep + "]";
+	}
+	
+	
 }
