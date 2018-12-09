@@ -21,7 +21,6 @@ import lombok.NoArgsConstructor;
 @Data
 @EqualsAndHashCode(callSuper=false)
 @AllArgsConstructor
-@NoArgsConstructor
 @PrimaryKeyJoinColumn(name="id")
 public class Cliente extends Pessoa{
 	

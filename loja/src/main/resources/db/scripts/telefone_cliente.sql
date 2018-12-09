@@ -1,6 +1,6 @@
 --liquibase formatted sql
 
---changeset adriano:201810210022
+--changeset adriano:201810210023
 --comment: Criando a estrutura da tabela TELEFONE_CLIENTE
 CREATE TABLE IF NOT EXISTS `lab04db`.`telefone_cliente` (
   `telefone_id` INT(11) NOT NULL COMMENT 'Identificador da tabela telefone.',
@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `lab04db`.`telefone_cliente` (
   PRIMARY KEY (`telefone_id`, `pessoa_id`),
   INDEX `fk_telefone_has_cliente_telefone1_idx` (`telefone_id` ASC) VISIBLE,
   INDEX `fk_telefone_pessoa_idx` (`pessoa_id` ASC) VISIBLE,
-  CONSTRAINT `fk_telefone_clitente_cliente`
+  CONSTRAINT `fk_telefone_cliente_cliente`
     FOREIGN KEY (`pessoa_id`)
     REFERENCES `lab04db`.`cliente` (`pessoa_id`),
   CONSTRAINT `fk_telefone_cliente_telefone`

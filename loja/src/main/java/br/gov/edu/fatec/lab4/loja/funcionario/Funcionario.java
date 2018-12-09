@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 @PrimaryKeyJoinColumn(name="id")
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper=false)
 public class Funcionario extends Pessoa{
 	/**
