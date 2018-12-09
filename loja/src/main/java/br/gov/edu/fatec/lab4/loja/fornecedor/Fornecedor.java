@@ -17,16 +17,19 @@ import org.hibernate.annotations.GenericGenerator;
 
 import br.gov.edu.fatec.lab4.loja.endereco.Endereco;
 import br.gov.edu.fatec.lab4.loja.telefone.Telefone;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Fornecedor {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-	@GenericGenerator(name="native", strategy = "native")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String nome;
 	private Integer cnpj;
@@ -34,7 +37,7 @@ public class Fornecedor {
 	@OneToOne
 	private Endereco endereco;
 	
-	@OneToMany(mappedBy="fornecedor", cascade=CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(mappedBy="itemCompraPK.fornecedor", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<ItemCompra> produtos;
 	
 	@ManyToMany

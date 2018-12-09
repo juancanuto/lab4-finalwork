@@ -4,14 +4,20 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import br.gov.edu.fatec.lab4.loja.cliente.Cliente;
-import br.gov.edu.fatec.lab4.loja.cliente.ClienteRepository;
+import br.gov.edu.fatec.lab4.loja.categoria.Categoria;
+import br.gov.edu.fatec.lab4.loja.fornecedor.ItemCompra;
+import br.gov.edu.fatec.lab4.loja.fornecedor.ItemCompraRepository;
 
+@Service
 public class ProdutoService implements ProdutoServiceImpl {
 
 	@Autowired
 	public ProdutoRepository produtoRepository;
+	
+	@Autowired
+	public ItemCompraRepository ItemCompraRepository;
 	
 	@Override
 	public boolean save(Produto produto) {
@@ -37,12 +43,20 @@ public class ProdutoService implements ProdutoServiceImpl {
 
 	@Override
 	public Optional<Produto> findById(Integer id) {
-		Optional<Produto> cliente = produtoRepository.findById(id);
-		return cliente.isPresent()?cliente:null;
+		Optional<Produto> produto = produtoRepository.findById(id);
+		return produto.isPresent()?produto:null;
 	}
 
 	@Override
 	public List<Produto> findAll() {
 		return produtoRepository.findAll();
+	}
+
+	public Produto vincularCategoria(Produto produto,Categoria categoria) {
+		produto.setCategoria(categoria);
+		save(produto);
+		Optional<Produto> p = findById(produto.getId());
+		produto = p!=null?p.get():null;
+		return produto;
 	}
 }

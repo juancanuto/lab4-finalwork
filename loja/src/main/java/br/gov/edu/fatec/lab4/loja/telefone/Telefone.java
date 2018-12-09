@@ -12,16 +12,19 @@ import org.hibernate.annotations.GenericGenerator;
 
 import br.gov.edu.fatec.lab4.loja.cliente.Cliente;
 import br.gov.edu.fatec.lab4.loja.fornecedor.Fornecedor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Telefone {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-	@GenericGenerator(name="native", strategy = "native")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private Integer numero;
 	private Integer ddd;
