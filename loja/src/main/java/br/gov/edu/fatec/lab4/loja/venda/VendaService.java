@@ -27,7 +27,7 @@ public class VendaService implements VendaServiceImpl {
 	@Autowired
 	public ItemVendaRepository itemVendaRepository;
 	
-	@Autowired
+	
 	public ItemVenda itemVenda;
 	
 	@Autowired
@@ -85,7 +85,7 @@ public class VendaService implements VendaServiceImpl {
 					.venda(venda).build();			
 			ItemVenda itemVenda = ItemVenda.builder().
 					itemVendaPK(itemVendaPK). 
-					data_venda(new Date()).
+					dataVenda(new Date()).
 					quantidade(1) 
 					.build();
 			venda.setItensVenda(Arrays.asList(itemVenda));

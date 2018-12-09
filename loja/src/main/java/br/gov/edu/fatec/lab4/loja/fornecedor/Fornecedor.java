@@ -45,4 +45,12 @@ public class Fornecedor {
     joinColumns={@JoinColumn(name="telefone_id", referencedColumnName="id")},
     inverseJoinColumns={@JoinColumn(name="fornecedor_id", referencedColumnName="id")})
 	private List<Telefone> telefones;
+
+	@Override
+	public String toString() {
+		return "Fornecedor [id=" + id + ",\n nome=" + nome + ",\n cnpj=" + cnpj + ",\n endereco=" + endereco 
+				+ ", telefones=" + telefones + "]";
+	}
+	
+	
 }

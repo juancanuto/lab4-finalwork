@@ -59,8 +59,8 @@ public class UtilsTest {
 	
 	public static ItemCompra criarItemCompra() {
 		return ItemCompra.builder().
-				data_entrada(Calendar.getInstance()).
-				valor_custo(15000.20).
+				dataEntrada(Calendar.getInstance()).
+				valorCusto(15000.20).
 				build();
 	}
 
@@ -120,7 +120,7 @@ public class UtilsTest {
 
 	public static ItemVenda criarItemVenda(ItemVendaPK itemVendaPK) {
 		return ItemVenda.builder().
-					data_venda(new Date()).
+					dataVenda(new Date()).
 					itemVendaPK(itemVendaPK).
 					quantidade(3).				
 				build();

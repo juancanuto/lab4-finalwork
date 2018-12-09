@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -36,7 +37,8 @@ public class ItemVenda implements Serializable{
 	@EmbeddedId
 	ItemVendaPK itemVendaPK;
 	
-	Date data_venda;
+	@Column(name="data_venda")
+	Date dataVenda;
 	
 	Integer quantidade;
 }

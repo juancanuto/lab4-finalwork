@@ -33,4 +33,9 @@ public class Telefone {
 	private List<Cliente>clientes;
 	@ManyToMany(mappedBy = "telefones")
 	private List<Fornecedor> fornecedores;
+	@Override
+	public String toString() {
+		return "Telefone [id=" + id + ", numero=" + numero + ", ddd=" + ddd + ", tipo=" + tipo + ", clientes="
+				+ clientes + ", fornecedores=" + fornecedores + "]";
+	}
 }

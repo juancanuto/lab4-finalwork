@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.gov.edu.fatec.lab4.loja.categoria.Categoria;
-import br.gov.edu.fatec.lab4.loja.fornecedor.ItemCompra;
 import br.gov.edu.fatec.lab4.loja.fornecedor.ItemCompraRepository;
 
 @Service
@@ -58,5 +57,9 @@ public class ProdutoService implements ProdutoServiceImpl {
 		Optional<Produto> p = findById(produto.getId());
 		produto = p!=null?p.get():null;
 		return produto;
+	}
+	
+	public Integer recuperarEstoqueMinimo(Produto produto) {
+		return produto.getEstoque().getQtdMinima();
 	}
 }
