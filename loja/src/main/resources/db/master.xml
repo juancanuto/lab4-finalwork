@@ -25,4 +25,19 @@
 	<include file="db/scripts/estoque.sql"/>
 	<include file="db/scripts/venda.sql"/>
 	<include file="db/scripts/item_venda.sql"/>
+	<include file="db/scripts/endereco_inserts.sql"/>
+	<include file="db/scripts/pessoa_inserts.sql"/>
+	<include file="db/scripts/cliente_inserts.sql"/>
+	<include file="db/scripts/usuario_inserts.sql"/>
+	<include file="db/scripts/funcionario_inserts.sql" />
+	<include file="db/scripts/telefone_inserts.sql"/>
+	<include file="db/scripts/fornecedor_inserts.sql"/>
+	<include file="db/scripts/telefone_fornecedor_inserts.sql"/>
+	<include file="db/scripts/telefone_cliente_inserts.sql"/>
+	<include file="db/scripts/categoria_inserts.sql"/>
+	<include file="db/scripts/produto_inserts.sql"/>
+	<include file="db/scripts/fornecedor_produto_inserts.sql"/>
+	<include file="db/scripts/estoque_inserts.sql"/>
+	<include file="db/scripts/venda_inserts.sql"/>
+	<!--  <include file="db/scripts/item_venda_inserts.sql"/>-->
 </databaseChangeLog>
