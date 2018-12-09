@@ -13,27 +13,29 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import br.gov.edu.fatec.lab4.loja.cliente.Cliente;
 import br.gov.edu.fatec.lab4.loja.funcionario.Funcionario;
+import br.gov.edu.fatec.lab4.loja.funcionario.Funcionario;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Venda {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-	@GenericGenerator(name="native", strategy = "native")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
 	@ManyToOne
 	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
 	
-	@OneToMany(mappedBy="venda", cascade=CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(mappedBy="itemVendaPK.venda", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<ItemVenda> itensVenda;
 	
 	@OneToOne(orphanRemoval=true)

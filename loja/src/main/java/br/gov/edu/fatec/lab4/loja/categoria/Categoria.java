@@ -7,15 +7,19 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Entity
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Categoria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@GenericGenerator(name="native", strategy = "native")
+//	@GenericGenerator(name="native", strategy = "native")
 	private Integer id;
 	private String nome;
 }
